@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="alert-box" id="alert">알림창임 <button onclick="알림창('none')">닫기</button></div>
+
+    <!-- 숙제 -->
+    <div class="alert-box" id="inputId"><input type="text" placeholder="아이디를 입력하세요"> <button onclick="알림창('inputId', 'none')">닫기</button></div>
+    <div class="alert-box" id="inputPw"><input type="password" placeholder="비밀번호를 입력하세요"> <button onclick="알림창('inputPw','none')">닫기</button></div>
+
+    <!-- 숙제 : 버튼 1 > 아이디 입력하세요 알림창, 버튼2 > 비밀번호 입력하세요 알림창 띄우기 -->
+    <button onclick="알림창('inputId', 'block')">버튼1</button>
+    <button onclick="알림창('inputPw', 'block')">버튼2</button>
+
+    <script>
+        // 숙제
+        function 알림창(아이디, 구멍){
+            document.getElementById(아이디).style.display = 구멍;
+        }
+    </script>
+</body>
+</html>
