@@ -38,18 +38,20 @@
 
     <!-- 숙제 : 버튼 누르면 로그인 모달창 뜨게 하기 -->
     <button id="login-btn">로그인 버튼 생성</button>
-    <div class="login-modal">
-        <div class="modal-header">
-            <p>로그인</p>
-            <button id="close">닫기</button>
+    <div class="black-bg">
+        <div class="login-modal">
+            <div class="modal-header">
+                <p>로그인</p>
+                <button id="close">닫기</button>
+            </div>
+            <form action="">
+                <label for="inputId">아이디</label> <input type="text" name="" id="inputId" placeholder="입력">
+                <label for="inputPw">비밀번호</label> <input type="password" name="" id="inputPw" placeholder="입력">
+                <button id="submit" type="submit">확인</button>
+            </form>
         </div>
-        <form action="">
-            <label for="inputId">아이디</label> <input type="text" name="" id="inputId" placeholder="입력">
-            <label for="inputPw">비밀번호</label> <input type="password" name="" id="inputPw" placeholder="입력">
-            <button id="submit" type="submit">확인</button>
-        </form>
     </div>
-
+    
     <script>
         // 자바스크립트
         document.querySelector('.hello').innerHTML = "바보";
@@ -68,10 +70,13 @@
 
         // 제이쿼리 로그인 모달창 숙제
         $('#login-btn').on('click', function(){
+            
+            $('.black-bg').fadeIn();
             $('.login-modal').css('display', 'block');
         })
 
         $('#close').on('click', function(){
+            $('.black-bg').fadeOut();
             $('.login-modal').fadeOut();
         })
 
