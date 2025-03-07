@@ -12,3 +12,39 @@
 .show {
     display: block;
 }
+
+.login-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: lightgray;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: none;
+}
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.login-modal > form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+#close {
+    width: fit-content;
+    align-self: flex-end;
+}
+
+#submit {
+    width: 33%;
+    margin-top: 10px;
+    align-self: flex-end;
+}
