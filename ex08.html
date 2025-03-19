@@ -87,10 +87,10 @@
         })
 
 		document.getElementById('submit').addEventListener('click', function () {
-			if (document.getElementById('inputId').length != 0) {
+			if (document.getElementById('inputId').value == '') {
 				alert("아이디를 입력해주세요");
 			}
-		})
+		});
     </script>
 
     <!-- 부트스트랩 -->
