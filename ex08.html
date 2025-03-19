@@ -23,7 +23,7 @@
                 <p>로그인하기</p>
                 <button id="close">닫기</button>
             </div>
-            <form action="">
+            <form action="success.html">
                 <label for="inputId">아이디</label> <input type="text" name="" id="inputId" placeholder="입력">
                 <label for="inputPw">비밀번호</label> <input type="password" name="" id="inputPw" placeholder="입력">
                 <button id="submit" type="submit">확인</button>
@@ -85,6 +85,12 @@
         document.querySelector('.navbar-toggler').addEventListener('click', function () {
             document.querySelector('.list-group').classList.toggle('show');
         })
+
+		document.getElementById('submit').addEventListener('click', function () {
+			if (document.getElementById('inputId').length != 0) {
+				alert("아이디를 입력해주세요");
+			}
+		})
     </script>
 
     <!-- 부트스트랩 -->
