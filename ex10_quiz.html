@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="title">if/else, function 실력향상 과제</h1>
+    <hr>
+
+    <div class="q1">
+        <h2> Q1. 철수는 369게임을 더럽게 못합니다.</h2>
+        <hr>
+        <p>실제 369게임 말고 약간 쉽게 각색해서<br> '3의 배수에서' 박수를 치면 되는 게임을 하고있습니다. <br><br>근데 철수는 바보라 숫자를 하나 주었을 때 이 숫자가 3의 배수인지 아닌지
+            파악하기 넘나 힘든 관계로 <br>프로그래밍으로 이 문제를 해결하려고 합니다. <br><br>어떤 숫자를 함수 안에 집어넣으면 박수를 쳐야할 지 말아야할 지 판단해주는 함수를
+            만들려고<br>하는데<br><br>어떻게 함수를 만들어야 할까요?</p>
+
+        <pre><code class="language-javascript">
+        function 삼육구게임() {
+            //빨리 이 함수를 디자인해봅시다.
+        }
+        </code></pre>
+
+        <p>실행결과 예시 : <br>삼육구게임(6); 실행하면 3의 배수니까 콘솔창에 '박수'라는 글자가 떠야합니다. <br>삼육구게임(12); 실행하면 3의 배수니까 콘솔창에 '박수'라는 글자가
+            떠야합니다. <br>삼육구게임(11); 실행하면 3의 배수 아니니까 콘솔창에 '통과'라는 글자가 떠야합니다.</p>
+        <br>
+        <br>
+        <p>힌트 :<br>자바스크립트엔 % 나머지 연산자가 있긴 합니다 </p>
+
+        <b>
+            <p>정답 제출</p>
+        </b>
+        <form id="quiz1" action="#">
+            <input type="text" id="input1" placeholder="삼육구 숫자를 넣어주세요"></input>
+            <button type="submit">제줄</button>
+        </form>
+        <p class="result" id="result1"></p>
+        <script>
+            // event 객체를 이용해서 preventDefault를 지정해주면 페이지가 새로고침을 안함.
+            function 삼육구게임() {
+                // alert("삼육구게임 실행");
+                input1 = document.getElementById('input1').value;
+                result1 = document.getElementById('result1');
+                // 만약 3의 배수라면
+                if (input1 % 3 == 0) {
+                    console.log('박수');
+                    result1.classList.add('green');
+                    result1.innerHTML = '박수';
+                } else {
+                    console.log('통과');
+                    result1.classList.add('red');
+                    result1.innerHTML = '통과';
+                }
+            }
+            // addEventListener에는 미리 작성된 함수를 사용할 때 ()를 생략해야 한다.
+            document.getElementById('quiz1').addEventListener("submit", 삼육구게임);
+        </script>
+    </div>
+    <div class="q2">
+        <h2> Q2. 하지만 369게임 업그레이드 버전이 등장했습니다.</h2>
+        <hr>
+        <p>369게임 업그레이드 버전은 3의 배수에서 박수를 치는건 맞지만<br> 9의 배수에서는 박수를 두번 쳐야합니다. <br>철수는 역시나 이것도 프로그래밍으로 이 문제를 해결하려고 합니다.
+            <br>아까 만들었던 369게임() 함수를 어떻게 고치면 될까요?<br></p>
+
+        <pre><code class="language-javascript">
+        function 삼육구게임() {
+            //빨리 이 함수를 디자인해봅시다.
+        }
+        </code></pre>
+
+        <p>실행결과 예시 : <br>삼육구게임(6); 실행하면 콘솔창에 '박수'라는 글자가 떠야합니다. <br>삼육구게임(9); 실행하면 콘솔창에 '박수x2'라는 글자가 떠야합니다.
+            <br>삼육구게임(11); 실행하면 3의 배수 아니니까 콘솔창에 '통과'라는 글자가 떠야합니다.</p>
+        <br>
+        <br>
+        <p>참고) 함수이름 작명시 맨 처음 단어는 숫자를 사용하시면 안됩니다. <br> 참고2) 페이지 내의 다른 곳에서 자바스크립트 문법 에러가 뜨는 경우 다른 코드도 실행이 제대로 되지 않습니다.
+            <br><br>콘솔창에 에러가 없는지 한번 확인해보십시오. </p>
+
+        <b>
+            <p>정답 제출</p>
+        </b>
+        <form id="quiz2" action="#">
+            <input type="text" id="input2" placeholder="삼육구 숫자를 넣어주세요"></input>
+            <button type="submit">제줄</button>
+        </form>
+        <p class="result" id="result2"></p>
+        <script>
+            function 삼육구게임() {
+                input2 = document.getElementById('input2').value;
+                result2 = document.getElementById('result2');
+
+                // 기존 클래스 제거 (초기화)
+                result2.classList.remove('green', 'darkgreen', 'red');
+
+                // 3의 배수이면서 9의 배수이면
+                if (input2 % 3 == 0 && input2 % 9 == 0) {
+                    console.log('박수x2');
+                    result2.classList.add('darkgreen');
+                    result2.innerHTML = '박수x2';
+                } // 일반적인 3의 배수일때
+                else if (input2 % 3 == 0) {
+                    console.log('박수');
+                    result2.classList.add('green');
+                    result2.innerHTML = '박수';
+                } else {
+                    console.log('통과');
+                    result2.classList.add('red');
+                    result2.innerHTML = '통과';
+                }
+            }
+            document.getElementById('quiz2').addEventListener('submit', 삼육구게임);
+        </script>
+    </div>
+    <div class="q3">
+        <h2> Q3. 공인중개사 시험점수를 입력하면 합격인지 알려주는 함수를 만들어봅시다.</h2>
+        <hr>
+        <p>공인중개사 1차 시험은 개론, 민법 2개 과목이 있습니다.<br> 과목마다 100점 만점이지만 두 과목 합해서 120점 이상이면 합격시켜줍니다. <br>다만 한 과목이 40점 미만이면 과락으로
+            불합격됩니다. <br>과목 점수 2개를 파라미터로 입력하면 합격인지 불합격인지 여부를 콘솔창에 출력하는 함수를 만들어보십시오.<br></p>
+
+        <pre><code class="language-javascript">
+        function 합격했냐() {
+            //코드 짜면 됩니다.
+        }
+        </code></pre>
+
+        <p>실행결과 예시 : <br>합격했냐(70, 70); 실행시 총점 120이상이니 콘솔창에 '합격'이 출력되어야 합니다. <br>합격했냐(30, 100); 실행시 하나 과락이니 콘솔창에 '불합격'이
+            출력되어야합니다. <br>합격했냐(50, 50); 실행시 총점 120미만이니 콘솔창에 '붏합격'이 출력되어야합니다.</p>
+        <br>
+        <br>
+
+        <b>
+            <p>정답 제출</p>
+        </b>
+        <form id="quiz3" action="#">
+            <div class="double_input">
+                <input type="text" id="input301" placeholder="개론 점수 입력"></input>
+                <input type="text" id="input302" placeholder="민법 점수 입력"></input>
+            </div>
+            <button type="submit">제줄</button>
+        </form>
+        <p class="result" id="result3"></p>
+        <script>
+            function 합격했냐() {
+                input301 = document.getElementById('input301').value;
+                input302 = document.getElementById('input302').value;
+                result3 = document.getElementById('result3');
+
+                // 색깔 초기화
+                result3.classList.remove('green', 'red');
+                // 과락
+                if ((input301 < 40) || (input302 < 40)) {
+                    console.log('불합격');
+                    alert("input301 : " + input301 + "input302 : " + input302);
+                    result3.classList.add('red');
+                    result3.innerHTML = '불합격';
+                } else if ((input301 <= 100 && input302 <= 100) && (input301 + input302 < 120)) {
+                    console.log('불합격');
+                    alert("input301 : " + input301 + "input302 : " + input302);
+                    result3.classList.add('red');
+                    result3.innerHTML = '불합격';
+                } else {
+                    console.log('합격');
+                    result3.classList.add('green');
+                    result3.innerHTML = '합격';
+                }
+            }
+            document.getElementById('quiz3').addEventListener('submit', 합격했냐);
+        </script>
+    </div>
+    <div class="q4">
+        <h2> (응용) 원래의 369게임 룰을 적용하려면 어떻게 해야할까요</h2>
+        <hr>
+        <p>3의 배수에서 박수를 치는게 아니라 끝자리가 3,6,9로 끝나는 숫자라면 '박수'를 출력되게 하는겁니다.<br><br> 이건 숫자의 마지막 자리를 어떻게 파악할지 구글 검색해보면 쉽게 해결되니
+            답은 없습니다. <br></p>
+
+        <br>
+        <br>
+        <b>
+            <p>정답 제출</p>
+        </b>
+        <p>게임에 참여할 인원을 선택해 주세요</p>
+        <form id="quiz4" action="#">
+            <div class="selectP">
+                <label for="people">인원 : </label>
+                <select id="people" name="people">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="chatting_room" id="chats">
+                <!-- 369 게임 채팅공간 -->
+            </div>
+            <input type="text" id="input4" placeholder="입력"></input>
+            <button type="submit" id="submit4">제줄</button>
+        </form>
+        <script>
+            quizForm = document.getElementById('quiz4');
+            document.getElementById('input4').classList.add('none');
+            document.getElementById('submit4').classList.add('none');
+            chats = document.getElementById('chats');
+            chats.style.display = 'none';
+            let peopleDict = {}; // 빈 객체 생성
+            let i = 1;
+            let temp = 0; // 이전 숫자 기억
+
+            function 진짜삼육구게임(selectedValue) {
+                // 게임 시작 시 기존 게임 클리어
+                chats.innerHTML = "";
+                i = 1
+                temp = 0;
+
+                // 게임 시작 후 인풋창과 채팅내역창, 제출버튼 display
+                document.getElementById('input4').classList.remove('none');
+                document.getElementById('submit4').classList.remove('none');
+                chats.style.display = 'block';
+                placeH = document.getElementById('input4');
+                // selectedValue = 인원 수에 맞게 유저 JSON 생성
+                
+                // peopleDict 초기화
+                peopleDict = {};
+
+                for (let j = 1; j <= selectedValue; j++) {
+                    peopleDict[j] = [];
+                }
+                // console.log(peopleDict);
+                //   {
+                //   1: [],
+                //   2: [],
+                //   3: [],
+                //   4: [],
+                //   5: []
+                // }
+                placeH.placeholder = "User-" + i + " 차례";
+            }
+            // 제출 할 때마다 placeH 바꾸기, 채팅창에 업로드, 369 로직
+            quizForm.addEventListener('submit', function (e) {
+                inputNum = parseInt(document.getElementById('input4').value);
+                document.getElementById('input4').value = '';
+                peopleDict[i].push(inputNum);
+
+                // alert(peopleDict[i][peopleDict[i].length - 1]);
+                
+                // 채팅 내역 디자인
+                lineDiv = document.createElement('div');
+                chatDiv = document.createElement('div');
+                userDiv = document.createElement('div');
+
+                lineDiv.classList.add('line');
+                userDiv.classList.add('user' + i, 'users');
+                userDiv.innerText = "User" + i;
+                chatDiv.classList.add('user' + i, 'answers');
+
+                // 369 게임 로직
+                if (temp + 1 === inputNum) {
+                    if ((inputNum % 10 == 3) || (inputNum % 10 == 6) || (inputNum % 10 == 9)) {
+                        answer = "박수 👏";
+                    } else {
+                        answer = ""+inputNum;
+                    }
+                } else {
+                    answer = "탈락!!!!!";
+                    document.getElementById("input4").disabled = true;
+                }
+                temp = inputNum;
+                chatDiv.innerText = answer;
+                
+
+                lineDiv.appendChild(userDiv);
+                lineDiv.appendChild(chatDiv);
+                chats.appendChild(lineDiv);
+
+                i = (i % Object.keys(peopleDict).length) + 1;
+                placeH.placeholder = "User-" + i + " 차례";
+                e.preventDefault();
+            });
+
+            selectElement = document.getElementById('people');
+            selectElement.addEventListener('click', function () {
+                selectedValue = parseInt(selectElement.value);
+                진짜삼육구게임(selectedValue);
+            });
+        </script>
+    </div>
+    <br>
+    <div class="q5">
+        <h2> (응용2) 합격판독기에 0에서 100사이 숫자가 아닌걸 입력하면 장난치지 말라고 alert를 띄우려면 어떻게 코드짜야할까요?</h2>
+        <hr>
+        <p>이것도 간단하게 if문 알아서 추가해봅시다. <br></p>
+
+        <br>
+        <br>
+        <b>
+            <p>정답 제출</p>
+        </b>
+
+        <p>합격 판독기</p>
+        <form action="#" id="check">
+            <input type="text" id="input5" placeholder="점수를 입력하세요.">
+            <button type="submit" id="submit5">확인</button>
+        </form>
+        <script>
+            document.getElementById('check').addEventListener('submit', function() {
+                input5 = document.getElementById('input5').value;
+                if (input5 < 0 || input5 > 100) {
+                    alert("장난 치지 마십시오!");
+                }
+            });
+        </script>
+    </div>
+    <style>
+        form {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .green {
+            border: 2px solid lightgreen;
+            border-radius: 5px;
+        }
+
+        .darkgreen {
+            border: 2px solid green;
+            border-radius: 5px;
+        }
+
+        .red {
+            border: 2px solid lightcoral;
+            border-radius: 5px;
+        }
+
+        .result {
+            padding: 10px 100px 10px 100px;
+            width: fit-content;
+        }
+
+        .double_input {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .display {
+            display: block;
+        }
+
+        .none {
+            display: none;
+        }
+
+        #quiz4 {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        .selectP {
+            display: flex;
+            flex-direction: row;
+            column-gap: 20px;
+        }
+
+        #submit4 {
+            align-self: flex-end;
+            padding: 10px;
+        }
+
+        .chatting_room {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid gray;
+            border-radius: 5px;
+            height: 400px;
+            overflow: auto;
+        }
+        
+        .users {
+            padding: 10px;
+        }
+        .answers {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            /* text-align: right; */
+            padding-right: 10px;
+            width: 100%;
+            /* justify-self: flex-end; */
+        }
+        .line {
+            display: flex;
+            flex-direction: row;
+        }
+        .user1 {
+            background-color: #FFB3BA;
+            border: 1px solid #FF9999;
+        }
+
+        .user2 {
+            background-color: #FFC87C;
+            border: 1px solid #FFB266;
+        }
+
+        .user3 {
+            background-color: #FFF996;
+            border: 1px solid #FFEE66;
+        }
+
+        .user4 {
+            background-color: #AAF0D1;
+            border: 1px solid #77DD77;
+        }
+
+        .user5 {
+            background-color: #ADD8E6;
+            border: 1px solid #66B2FF;
+        }
+    </style>
+</body>
+
+</html>
