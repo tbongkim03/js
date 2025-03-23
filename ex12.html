@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- 내 css 파일이 맨 밑에 있어야 적용됨. -->
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand">JSShop</span>
+        </div>
+    </nav>
+    <div class="main-bg">
+        <h4>Shirts on Sale</h4>
+        <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+    <div class="alert alert-danger">
+        <span class="time">5</span>초 이내 구매시 사은품 증정!
+    </div>
+
+    <script>
+        // 숙제 : 위에서 만든 <div>안에 "5초 이내 구매시 사은품 증정" 이라는 문자가 있습니다.
+        // 1초마다 5라는 문자를 1씩 감소시켜봅시다.
+        // 0이 되면 <div>를 안보이게 처리합시다. 
+ 
+        let sec = 5;
+        // 5초 후 코드 실행하려면
+        // setTimeout(function(){}, ms)
+        setTimeout(function(){
+            document.querySelector('.alert').style.display = "none";
+        }, 5000);
+
+        // 1초마다 코드 실행하고 싶으면?
+        // setInterval(function(){}, ms)
+        var 타이머 = setInterval(function(){
+            sec --;
+            document.querySelector(".time").innerHTML = sec;
+        }, 1000);
+
+        // 만약 타이머를 삭제하고 싶으면
+        // clearTimeout(타이머);
+    </script>
+    <!-- 부트스트랩 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+</body>
+</html>

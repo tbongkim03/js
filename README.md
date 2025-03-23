@@ -1,5 +1,5 @@
 ### JS STUDY
 ref : coding apple
-2025/03/21
+2025/03/23
 
-![alt text](./img/ex12_quiz.png)
+![alt text](./img/ex12.png)
