@@ -2,4 +2,4 @@
 ref : coding apple
 2025/03/21
 
-![alt text](./img/ex10.png)
+![alt text](./img/ex12_quiz.png)
