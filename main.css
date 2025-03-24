@@ -59,6 +59,12 @@
     align-self: flex-end;
 }
 
+#submit2 {
+    width: 33%;
+    margin-top: 10px;
+    align-self: flex-end;
+}
+
 .main-bg {
     display: flex;
     flex-direction: column;
