@@ -5,44 +5,21 @@
 // 모든 div에 붙은 show 클래스명 제거
 // div 0 에 show 클래스명 추가
 
-var btn0 = document.querySelectorAll('.tab-button')[0];
-var btn1 = document.querySelectorAll('.tab-button')[1];
-var btn2 = document.querySelectorAll('.tab-button')[2];
-
+var tabButton = document.querySelectorAll('.tab-button');
 var list = document.querySelector('.list').children;
-var container = document.querySelector(".container").children;
+// var container = document.querySelector(".container").children;
+var contents = document.querySelectorAll('.tab-content');
 
-var tab0 = document.querySelectorAll('.tab-content')[0];
-var tab1 = document.querySelectorAll('.tab-content')[1];
-var tab2 = document.querySelectorAll('.tab-content')[2];    
-
-btn0.addEventListener('click', function(){
-    for (let i = 0; i < list.length; i++) {
-        list.item(i).classList.remove("orange");
-    }
-    for (let j = 0; j < container.length; j++) {
-        container.item(j).classList.remove("show");
-    }
-    btn0.classList.add("orange");
-    tab0.classList.add("show");
-});
-btn1.addEventListener('click', function(){
-    for (let i = 0; i < list.length; i++) {
-        list.item(i).classList.remove("orange");
-    }
-    for (let j = 0; j < container.length; j++) {
-        container.item(j).classList.remove("show");
-    }
-    btn1.classList.add("orange");
-    tab1.classList.add("show");
-});
-btn2.addEventListener('click', function(){
-    for (let i = 0; i < list.length; i++) {
-        list.item(i).classList.remove("orange");
-    }
-    for (let j = 0; j < container.length; j++) {
-        container.item(j).classList.remove("show");
-    }
-    btn2.classList.add("orange");
-    tab2.classList.add("show");
-});
+// 이렇게 줄일 수 있다니..
+for (let i = 0; i < list.length; i++) {
+    tabButton[i].addEventListener('click', function(){
+        tabButton.forEach(el => {
+            el.className = 'tab-button';
+        });
+        contents.forEach(el => {
+            el.className = 'tab-content';
+        });
+        tabButton[i].classList.add("orange");
+        contents[i].classList.add("show");
+    });
+}
